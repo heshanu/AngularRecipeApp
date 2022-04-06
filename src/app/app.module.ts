@@ -10,6 +10,8 @@ import { RecipeListComponent } from './compoent/recipes/recipe-list/recipe-list.
 import { ShoppingListComponent } from './compoent/shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './compoent/shopping-list/shopping-edit/shopping-edit.component';
 import { RecipesItemComponent } from './compoent/recipes/recipe-list/recipes-item/recipes-item.component';
+import { Ingredient } from './Shared/Ingredient.model';
+
 @NgModule({
   declarations: [
     AppComponent,
