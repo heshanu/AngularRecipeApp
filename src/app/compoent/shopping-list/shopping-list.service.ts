@@ -9,7 +9,7 @@ export class ShoppinListService{
   ];
 
   getIngredient(){
-    return this.ingredients.slice();
+    return this.ingredients;
   }
 
   addIngredient(ingredient:Ingredient){
