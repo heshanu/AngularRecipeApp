@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Recipe } from '../recipes.model';
+import { RecipeServiceService } from '../recipe-service.service';
 
 @Component({
   selector: 'app-recipe-list',
@@ -7,48 +8,14 @@ import { Recipe } from '../recipes.model';
   styleUrls: ['./recipe-list.component.css'],
 })
 export class RecipeListComponent implements OnInit {
-  @Output() recipeWasSelected = new EventEmitter<Recipe>();
-  recipes: Recipe[] = [
-    new Recipe(
-      'a test recipe',
-      'this is simple recipe',
-      'https://cdn.pixabay.com/photo/2018/07/18/19/12/pasta-3547078_960_720.jpg'
-    ),
-    new Recipe(
-      'Another test recipe',
-      'this is simple recipe',
-      'https://www.wellplated.com/wp-content/uploads/2017/11/Cinnamon-Roasted-Butternut-Squash-Easy-butternut-squash-recipe.jpg'
-    ),
-    new Recipe(
-      'a test recipe',
-      'this is simple recipe',
-      'https://www.wellplated.com/wp-content/uploads/2017/11/Cinnamon-Roasted-Butternut-Squash-Easy-butternut-squash-recipe.jpg'
-    ),
-    new Recipe(
-      'a test recipe',
-      'this is simple recipe',
-      'https://www.wellplated.com/wp-content/uploads/2017/11/Cinnamon-Roasted-Butternut-Squash-Easy-butternut-squash-recipe.jpg'
-    ),
-    new Recipe(
-      'a test recipe',
-      'this is simple recipe',
-      'https://www.wellplated.com/wp-content/uploads/2017/11/Cinnamon-Roasted-Butternut-Squash-Easy-butternut-squash-recipe.jpg'
-    ),
-    new Recipe(
-      'a test recipe',
-      'this is simple recipe',
-      'https://www.wellplated.com/wp-content/uploads/2017/11/Cinnamon-Roasted-Butternut-Squash-Easy-butternut-squash-recipe.jpg'
-    ),
-    new Recipe(
-      'a test recipe',
-      'this is simple recipe',
-      'https://www.wellplated.com/wp-content/uploads/2017/11/Cinnamon-Roasted-Butternut-Squash-Easy-butternut-squash-recipe.jpg'
-    ),
-  ];
-  constructor() {}
-  onRecipeSelected(recipe: Recipe) {
-    this.recipeWasSelected.emit(recipe);
+  //@Output() recipeWasSelected = new EventEmitter<Recipe>();
+  recipes!: Recipe[];
+
+  constructor(private recipeservice: RecipeServiceService) {}
+
+  ngOnInit(): void {
+    this.recipes = this.recipeservice.getRecipes();
   }
 
-  ngOnInit(): void {}
+
 }
