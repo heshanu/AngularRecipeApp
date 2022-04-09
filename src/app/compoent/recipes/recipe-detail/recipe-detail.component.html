@@ -9,7 +9,7 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <h1>{{recipe.name}}</h1>
+    <h1>{{ recipe.name }}</h1>
   </div>
 </div>
 <div class="row">
@@ -33,27 +33,45 @@
     </div>
   </div>
 </div>-->
-<div ngbDropdown class="dropdown">
-
-  <button ngbDropdownToggle class="btn btn-secondary" type="button" id="dropdownMenuButton1" aria-expanded="false">
-Manage btn
-</button>
-  <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton1">
-    <li><a ngbDropdownItem style="cursor:pointer"  (click)="onAddToShoppingList()">To ShoppingList</a></li>
-    <li><a ngbDropdownItem href="#">Edit Recipe</a></li>
-    <li><a ngbDropdownItem href="#">Delete Recipe</a></li>
-  </ul>
-</div>
-
-<div class="row">
-  <div class="col-xs-12">
-    {{recipe.description}}
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <ul class="list-group">
-      <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients" >{{ingredient.name}}-{{ingredient.amount}}</li>
+  <div ngbDropdown class="dropdown">
+    <button
+      ngbDropdownToggle
+      class="btn btn-primary"
+      type="button"
+      id="dropdownMenuButton1"
+      aria-expanded="false"
+    >
+      Manage Recipes
+    </button>
+    <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton1">
+      <li>
+        <a
+          ngbDropdownItem
+          style="cursor: pointer"
+          (click)="onAddToShoppingList()"
+          >To ShoppingList</a
+        >
+      </li>
+      <li><a ngbDropdownItem href="#">Edit Recipe</a></li>
+      <li><a ngbDropdownItem href="#">Delete Recipe</a></li>
     </ul>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      {{ recipe.description }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let ingredient of recipe.ingredients"
+        >
+          {{ ingredient.name }}-{{ ingredient.amount }}
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
